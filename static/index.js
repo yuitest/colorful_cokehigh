@@ -85,7 +85,6 @@ $(function () {
         $('.colorPickerCokeHigh').each(function () {
             $(this).spectrum('set', randomColor())
         });
-
         repaint();
     });
 });
