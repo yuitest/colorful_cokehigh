@@ -1,0 +1,19 @@
+{
+  "name": "colorful_cokehigh",
+  "version": "0.0.0",
+  "homepage": "https://github.com/yuitest/colorful_cokehigh",
+  "authors": [
+    "yuitest"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jscolor": "~1.4.2"
+  }
+}
