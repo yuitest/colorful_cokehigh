@@ -1,0 +1,31 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Helvetica, Arial,
+                 'Hiragino Kaku Gothic ProN',
+                 'ヒラギノ角ゴ ProN W3',
+                 Meiryo, メイリオ, sans-serif;
+}
+h1 {
+    position: relative;
+    margin: 0 0 1em 0;
+    padding: 1em 0 0.5em 0;
+    background-color: #FB201C;
+}
+.MiddlePane {
+    z-index: 100;
+    position: relative;
+    width: 100%;
+    height: 0%;
+    overflow: visible;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 0 0 0;
+}
+#cokehigh_svg {
+    transform-origin: center 0;
+    transform: scale(0.4);
+    object-fit: contain;
+}
