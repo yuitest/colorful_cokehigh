@@ -6,6 +6,7 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/i18n/jquery.spectrum-ja.min.js"></script>
+    <script src="bower_components/jscolor/jscolor.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.css" />
     <link rel="stylesheet" href="/index.css" />
     <script src="/index.js"></script>
@@ -14,13 +15,13 @@
     <div class="MiddlePane">
         <h1><img src="/coke_high_logo.png"></h1>
         <div>
-            <input type="text" id="colorpicker_skin">
-            <input type="text" id="colorpicker_hair">
-            <input type="text" id="colorpicker_eye1">
-            <input type="text" id="colorpicker_eye2">
-            <input type="text" id="colorpicker_skinShadow">
-            <input type="text" id="colorpicker_hairBand1">
-            <input type="text" id="colorpicker_hairBand2">
+            <input type="text" class="color" id="colorpicker_skin">
+            <input type="text" class="color" id="colorpicker_hair">
+            <input type="text" class="color" id="colorpicker_eye1">
+            <input type="text" class="color" id="colorpicker_eye2">
+            <input type="text" class="color" id="colorpicker_skinShadow">
+            <input type="text" class="color" id="colorpicker_hairBand1">
+            <input type="text" class="color" id="colorpicker_hairBand2">
             <input type="image" src="reload.png" id="reloadButton" style="vertical-align: bottom;">
         </div>
         <object id="cokehigh_svg" data="coke.svg" type="image/svg+xml"></object>

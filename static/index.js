@@ -67,19 +67,18 @@ function randomColor() {
         var s = {};
         $('.colorPickerCokeHigh').each(function () {
             var name = String(this.id).substr('colorpicker_'.length);
-            var value = String($(this).spectrum('get'));
+            var value = '#' + $(this).val();
             s[name] = value;
         });
         return s;
     }
     $(function () {
         targetNames.forEach(function (tname) {
-            $("#colorpicker_" + tname).spectrum({
-                preferredFormat: 'hex',
-                color: randomColor()
-            }).on('change', function () {
+            $("#colorpicker_" + tname).on('change', function () {
                 repaint();
-            }).addClass('colorPickerCokeHigh');
+            }).addClass('colorPickerCokeHigh').each(function () {
+                $(this).val(randomColor());
+            });
         });
         $('#cokehigh_svg').on('load', function () {
             repaint();

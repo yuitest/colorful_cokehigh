@@ -8,6 +8,9 @@ html, body {
                  'ヒラギノ角ゴ ProN W3',
                  Meiryo, メイリオ, sans-serif;
 }
+input.color {
+    width: 6em;
+}
 h1 {
     position: relative;
     margin: 0 0 1em 0;
