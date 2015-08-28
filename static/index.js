@@ -63,6 +63,12 @@ function randomColor() {
 }
 
 (function ($) {
+    var cokeHighSvgRaw = null;
+    $.get("coke.svg").then(function (data) {
+        cokeHighSvgRaw = data.documentElement;
+        repaint();
+    });
+
     function selectedColors() {
         var s = {};
         $('.colorPickerCokeHigh').each(function () {
@@ -80,9 +86,6 @@ function randomColor() {
                 $(this).val(randomColor());
             });
         });
-        $('#cokehigh_svg').on('load', function () {
-            repaint();
-        });
         $('#reloadButton').click(function () {
             $('.colorPickerCokeHigh').each(function () {
                 $(this).val(randomColor());
@@ -91,8 +94,8 @@ function randomColor() {
         });
     });
     function repaint(){
+        var svg = document.importNode(cokeHighSvgRaw, true);
         var targetColors = selectedColors();
-        var svg = document.getElementById("cokehigh_svg").contentDocument;
         targetNames.forEach(function (tname) {
             var color = targetColors[tname];
             targetNameColor[tname].forEach(function (eid) {
@@ -100,5 +103,8 @@ function randomColor() {
                 elm.style.fill = color;
             });
         });
+        $('#cokehighSeat').empty();
+        $(svg).attr('id', 'cokehigh_svg')
+        $('#cokehighSeat').append($(svg));
     }
 } (jQuery));
