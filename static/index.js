@@ -1,3 +1,4 @@
+jQuery.noConflict();
 var targetNames = [
     'skin',
     'hair',
@@ -60,42 +61,45 @@ function randomColor() {
     }
     return singleColorStr() + singleColorStr() + singleColorStr();
 }
-function selectedColors() {
-    var s = {};
-    $('.colorPickerCokeHigh').each(function () {
-        var name = String(this.id).substr('colorpicker_'.length);
-        var value = String($(this).spectrum('get'));
-        s[name] = value;
-    });
-    return s;
-}
-$(function () {
-    targetNames.forEach(function (tname) {
-        $("#colorpicker_" + tname).spectrum({
-            preferredFormat: 'hex',
-            color: randomColor()
-        }).on('change', function () {
-            repaint();
-        }).addClass('colorPickerCokeHigh');
-    });
-    $('#cokehigh_svg').on('load', function () {
-        repaint();
-    });
-    $('#reloadButton').click(function () {
+
+(function ($) {
+    function selectedColors() {
+        var s = {};
         $('.colorPickerCokeHigh').each(function () {
-            $(this).spectrum('set', randomColor())
+            var name = String(this.id).substr('colorpicker_'.length);
+            var value = String($(this).spectrum('get'));
+            s[name] = value;
         });
-        repaint();
-    });
-});
-function repaint(){
-    var targetColors = selectedColors();
-    var svg = document.getElementById("cokehigh_svg").contentDocument;
-    targetNames.forEach(function (tname) {
-        var color = targetColors[tname];
-        targetNameColor[tname].forEach(function (eid) {
-            var elm = svg.getElementById(eid);
-            elm.style.fill = color;
+        return s;
+    }
+    $(function () {
+        targetNames.forEach(function (tname) {
+            $("#colorpicker_" + tname).spectrum({
+                preferredFormat: 'hex',
+                color: randomColor()
+            }).on('change', function () {
+                repaint();
+            }).addClass('colorPickerCokeHigh');
+        });
+        $('#cokehigh_svg').on('load', function () {
+            repaint();
+        });
+        $('#reloadButton').click(function () {
+            $('.colorPickerCokeHigh').each(function () {
+                $(this).spectrum('set', randomColor())
+            });
+            repaint();
         });
     });
-}
+    function repaint(){
+        var targetColors = selectedColors();
+        var svg = document.getElementById("cokehigh_svg").contentDocument;
+        targetNames.forEach(function (tname) {
+            var color = targetColors[tname];
+            targetNameColor[tname].forEach(function (eid) {
+                var elm = svg.getElementById(eid);
+                elm.style.fill = color;
+            });
+        });
+    }
+} (jQuery));
