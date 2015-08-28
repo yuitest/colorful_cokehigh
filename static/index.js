@@ -85,7 +85,7 @@ function randomColor() {
         });
         $('#reloadButton').click(function () {
             $('.colorPickerCokeHigh').each(function () {
-                $(this).spectrum('set', randomColor())
+                $(this).val(randomColor());
             });
             repaint();
         });
